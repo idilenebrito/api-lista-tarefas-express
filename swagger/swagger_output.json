@@ -1,0 +1,178 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "lista de tarefas",
+    "description": "Exercicio de node.js, com Express e Sequelize ",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/tarefas/": {
+      "get": {
+        "tags": [
+          "Tarefas"
+        ],
+        "description": "Tarefas Controller.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tarefas"
+        ],
+        "description": "Tarefas Controller.",
+        "parameters": [
+          {
+            "name": "tarefa",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "titulo": {
+                  "type": "string"
+                },
+                "descricao": {
+                  "type": "string"
+                },
+                "concluido": {
+                  "type": "boolean"
+                },
+                "prioridade": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "titulo"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/tarefas/{id}": {
+      "get": {
+        "tags": [
+          "Tarefas"
+        ],
+        "description": "Tarefas Controller.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tarefas"
+        ],
+        "description": "Tarefas Controller.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/tarefas/status/{id}": {
+      "put": {
+        "tags": [
+          "Tarefas"
+        ],
+        "description": "Tarefas Controller.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tarefa",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "concluido": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "concluido"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/tarefas/prioridade/{id}": {
+      "put": {
+        "tags": [
+          "Tarefas"
+        ],
+        "description": "Tarefas Controller.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tarefa",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "prioridade": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "prioridade"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "api-lista-tarefas-express",
+  "version": "1.0.0",
+  "description": "atividade lista de tarefas",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./src/config/swagger.js & node app.js",
+    "swagger-autogen": "node ./src/config/swagger.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idilenebrito/api-lista-tarefas-express.git"
+  },
+  "author": "idilene brito",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/idilenebrito/api-lista-tarefas-express/issues"
+  },
+  "homepage": "https://github.com/idilenebrito/api-lista-tarefas-express#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express-validator": "^6.14.2",
+    "mssql": "^9.0.1",
+    "sequelize": "^6.21.4",
+    "swagger-ui-express": "^4.5.0"
+  },
+  "devDependencies": {
+    "swagger-autogen": "^2.21.5"
+  }
+}
