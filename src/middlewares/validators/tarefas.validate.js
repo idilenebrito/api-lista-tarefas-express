@@ -3,13 +3,11 @@ const { check, validationResult } = require("express-validator");
 
 // validação dos dados
 const criarTarefaValidator = [
-  // valide se existe 'nome', caso não passe a mensagem "Nome deve..."
   check("titulo").notEmpty().withMessage("Titulo deve ser definido"),
-  // valide se existe 'artista', caso não passe a mensagem "Artista deve..."
+
   check("descricao").optional({ nullable: true }),
 
-  check("concluido")
-    .default([false]).optional({ nullable: true }),
+  check("concluido").default([false]).optional({ nullable: true }),
 
   // check("prioridade")
   //   .default([5])
@@ -17,7 +15,7 @@ const criarTarefaValidator = [
   //   .withMessage("O valor da prioridade da tarefa precisa estar entre 1 a 5"),
   (req, res, next) => {
     const errors = validationResult(req);
-    // se nao tiver erros invoca função next() para chamar a próxima função de middleware 'albunsController.criarAlbum'
+    // se nao tiver erros invoca função next() para chamar a próxima função de middleware 'tarefasController.criartarefa'
     if (errors.isEmpty()) return next();
     // se encontrarmos erros, passamos status '422' e erros encontrados.
     res.status(422).json({ errors: errors.array() });
@@ -30,7 +28,7 @@ const atualizarStatusTarefaValidator = [
   check("concluido").notEmpty().withMessage("O status tem que ser definido"),
   (req, res, next) => {
     const errors = validationResult(req);
-    //se nao tiver erros invoca função next() para chamar a próxima função de middleware 'albunsController.criarAlbum'
+    //se nao tiver erros invoca função next() para chamar a próxima função de middleware 'tarefasController.criartarefa'
     if (errors.isEmpty()) return next();
     //se encontrarmos erros, passamos status'422' e erros encontrados.
     res.status(422).json({ errors: errors.array() });
@@ -39,10 +37,12 @@ const atualizarStatusTarefaValidator = [
 
 const atualizarPrioridadeTarefaValidator = [
   // valide se existe 'artista', caso não passe a mensagem "Artista deve..."
-  check("prioridade").notEmpty().withMessage("A prioridade tem que ser definido"),
+  check("prioridade")
+    .notEmpty()
+    .withMessage("A prioridade tem que ser definido"),
   (req, res, next) => {
     const errors = validationResult(req);
-    //se nao tiver erros invoca função next() para chamar a próxima função de middleware 'albunsController.criarAlbum'
+    //se nao tiver erros invoca função next() para chamar a próxima função de middleware 'tarefasController.criartarefa'
     if (errors.isEmpty()) return next();
     //se encontrarmos erros, passamos status'422' e erros encontrados.
     res.status(422).json({ errors: errors.array() });

@@ -21,11 +21,13 @@ Tarefa.init(
     },
     concluido: {
       type: sequelize.BOOLEAN,
-      allowNull: true,
+      allowNull: false,
+      defaultValue: false,
     },
     prioridade: {
       type: sequelize.INTEGER,
-      allowNull: true,
+      allowNull: false,
+      defaultValue: 5
     },
   },
   {
